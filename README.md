@@ -17,35 +17,53 @@ The evolution manager is in charge of breeding, mutation, and population control
 `FBoidInfo`: A struct holding the information of a ship, including its gene, fitness (points of the ship, referred to as fitness from this point on), and name.
 
 ### Methods
-`UGene* GenerateRandomGene(bool IsHarvester = false)`: Creates and randomizes a gene.
+`UGene* GenerateRandomGene(bool IsHarvester = false)`
 
-`void ApplyToBoid(UGene* Gene, ABoid* Boid, bool IsHarvester = false)`: Apply the properties of a gene to a ship and assign the gene itself to the ship.
+Creates and randomizes a gene.
 
-`void InitBoidGene(ABoid* Boid, bool IsHarvester = false)`: Calls the above two functions.
+`void ApplyToBoid(UGene* Gene, ABoid* Boid, bool IsHarvester = false)`
 
-`TTuple<UGene*, UGene*> BreedingMutationIndividual(UGene* ParentA, UGene* ParentB, bool IsHarvester = false)`: Randomly combines the genes of ParentA and ParentB to form two new genes, with a chance of mutation by discarding parents' gene and randomizes one.
+Apply the properties of a gene to a ship and assign the gene itself to the ship.
 
-`void PrintStengths(UGene* Gene)`: Prints the gene that is passed in.
+`void InitBoidGene(ABoid* Boid, bool IsHarvester = false)`
 
-`TArray<FBoidInfo> SortByFitness(TArray<ABoid*>& AliveBoids, TArray<FBoidInfo>& DeadBoids)`: Sorts the ships by fitness in descending order and returns the sorted info.
+Calls the above two functions.
 
-`UGene* SelectParent(const TArray<FBoidInfo>& BoidData, float TotalFitness)`: Select a parent based on fitness. The higher the fitness, the higher the chance a ship is selected.
+`TTuple<UGene*, UGene*> BreedingMutationIndividual(UGene* ParentA, UGene* ParentB, bool IsHarvester = false)`
 
-`TArray<UGene*> BreedingMutation(const TArray<FBoidInfo>& BoidData, int32 Count, bool IsHarvester = false)`: Selects parents and creates child genes. Generates 2 * Count number of new genes.
+Randomly combines the genes of ParentA and ParentB to form two new genes, with a chance of mutation by discarding parents' gene and randomizes one.
 
-`void PopulationSelection(const TArray<ABoid*>& AliveBoids, int32 Count)`: Destroys Count number of ships from the game.
+`void PrintStengths(UGene* Gene)`
+
+Prints the gene that is passed in.
+
+`TArray<FBoidInfo> SortByFitness(TArray<ABoid*>& AliveBoids, TArray<FBoidInfo>& DeadBoids)`
+
+Sorts the ships by fitness in descending order and returns the sorted info.
+
+`UGene* SelectParent(const TArray<FBoidInfo>& BoidData, float TotalFitness)`
+
+Select a parent based on fitness. The higher the fitness, the higher the chance a ship is selected.
+
+`TArray<UGene*> BreedingMutation(const TArray<FBoidInfo>& BoidData, int32 Count, bool IsHarvester = false)`
+
+Selects parents and creates child genes. Generates 2 * Count number of new genes.
+
+`void PopulationSelection(const TArray<ABoid*>& AliveBoids, int32 Count)`
+
+Destroys Count number of ships from the game.
 
 ## Spawner
 In charge of spawning ships and trigger evolution
 
 ## Boids
-`virtual FVector AvoidBoids(TArray<AActor*> Flock)`,
+`virtual FVector AvoidBoids(TArray<AActor*> Flock)`
 
-`virtual FVector VelocityMatching(TArray<AActor*> Flock)`,
+`virtual FVector VelocityMatching(TArray<AActor*> Flock)`
 
-`virtual FVector FlockCentering(TArray<AActor*> Flock)`,
+`virtual FVector FlockCentering(TArray<AActor*> Flock)`
 
-`virtual FVector AvoidObstacle()`,
+`virtual FVector AvoidObstacle()`
 
 `virtual FVector Migration()`
 
