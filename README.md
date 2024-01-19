@@ -23,7 +23,7 @@ Creates and randomizes a gene.
 
 `void ApplyToBoid(UGene* Gene, ABoid* Boid, bool IsHarvester = false)`
 
-Apply the properties of a gene to a ship and assign the gene itself to the ship.
+Applies the properties of a gene to a ship and assign the gene itself to the ship.
 
 `void InitBoidGene(ABoid* Boid, bool IsHarvester = false)`
 
@@ -31,7 +31,7 @@ Calls the above two functions.
 
 `TTuple<UGene*, UGene*> BreedingMutationIndividual(UGene* ParentA, UGene* ParentB, bool IsHarvester = false)`
 
-Randomly combines the genes of ParentA and ParentB to form two new genes, with a chance of mutation by discarding parents' gene and randomizes one.
+Randomly combines the genes of ParentA and ParentB to form two new genes, with a chance of mutation by discarding parents' gene and randomizing one.
 
 `void PrintStengths(UGene* Gene)`
 
